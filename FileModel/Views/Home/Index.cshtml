@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<h1> Home Page</h1>
+<h2> What to upload </h2>
+<h1> Description</h1>
+<p> The aim of this view is to create a page where users can select whether they want to upload a file,image or a video. The user can choose which type of file they wan to upload 
+    and then upload the file. There is a sperate tab for each type of file. Under the document tab the user can see which documents have been uploaded and can download these files 
+    as well as delete the documents from the server. Under the images tab the users can view the image uplaoded and can download the image as well as delete the image from the 
+    server. Finally under the videos tab the functionality is very similar as you can view the videos uplaoded and can download the video or delete the video from the server.</p>
+<h2> Option Selection</h2>
+@{
+  
+    <div class="well-sm">
+        <div class="form-horizontal">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+            // an encoding type that allows files to be sent through a POST.
+            // Quite simply, without this encoding the files cannot be sent through POST.
+            {
+                <label for="document">Document</label>
+                <input type="radio" id="document" name="FileType" value="Document" />
+                <br />
+                <label for="images">Images</label>
+                <input type="radio" id="images" name="FileType" value="Images" />
+                <br />
+                <label for="video">Video</label>
+                <input type="radio" id="video" name="FileType" value="Video" />
+                <br />
+                <div><input type="file" name="files" /></div>
+                <br />
+                <div><input type="submit" value="Submit" /></div>
+                @ViewBag.Message
+            }
+        </div>
+        <br />
+    </div>
+   
+}

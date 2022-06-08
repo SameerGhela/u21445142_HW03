@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Images";
+}
+
+<h2>Images of any File Type</h2>
+<h3> See the following images</h3>
+
+
+@foreach(var ImageFile in Model)
+{
+    string ImageName = ImageFile.FileName;
+    <div class="col-md-4">
+        <div class="card card-outline-info" style="width:25rem;padding:2%">
+            <a href="~/Media/Images/@ImageFile.FileName"
+               data-fancybox="gallery"
+               data-caption ="Optional caption">
+                <img class="card-img-top" src="~/Media/Images/@ImageFile.FileName" height="200" width="300" />
+            </a>
+            <p> @ImageFile.FileName</p>
+            <input type="button" class="btn btn-success" value="Download" onclick="location.href='@Url.Action("DownloadFile","Images",new {fileName = ImageFile.FileName})'" />
+            <input type="button" class="btn btn-danger" value="Delete" onclick="location.href='@Url.Action("DeleteFile","Images",new {fileName = ImageFile.FileName})'" />
+        </div>
+    </div>
+}
+
+
+

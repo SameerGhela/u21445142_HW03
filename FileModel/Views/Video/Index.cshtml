@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Video Files</h2>
+<h3> See the following videos</h3>
+@foreach (var VideoFile in Model)
+{
+    string VideoName = VideoFile.FileName;
+    <div class="col-md-4">
+        <div class="card card-outline-info" style="width:25rem;padding:2%">
+            <a href="~/Media/Video/@VideoFile.FileName"
+               data-fancybox="gallery"
+               data-caption="Optional caption">
+                <img class="card-img-top" src="~/Media/Video/@VideoFile.FileName" height="200" width="300" />
+            </a>
+            <p> @VideoFile.FileName</p>
+            <input type="button" class="btn btn-success" value="Download" onclick="location.href='@Url.Action("DownloadFile","Video",new {fileName = VideoFile.FileName})'" />
+            <input type="button" class="btn btn-danger" value="Delete" onclick="location.href='@Url.Action("DeleteFile","Video",new {fileName = VideoFile.FileName})'" />
+        </div>
+    </div>
+}

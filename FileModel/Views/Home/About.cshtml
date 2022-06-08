@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<h3>@ViewBag.Message</h3>
+
+<h1> Biography about me</h1>
+<h2> The life of Sameer Ghela</h2>
+
+<div class="row">
+<div class="col-lg-7">
+<h2> Bio</h2>
+<p> Sameer was born in Pretoria in 2002. Sameer was the first grandson of both his parents families and thus the family was delighted to hear a boy was finally born in the family after 4 girls in a row from my dads brothers and sisters children. <br />
+    Sameer as he got older took an interest in cars and loved playing with the small toy cars in his childhood. As he grew older and entered school he met many friends along the way and was liked by many 
+    because of his kind nature. Sameer would then also now take an interest in sports including football,cricket and tennis and would play all of these sports in his school career.<br />
+    Sameer performed admirably in high school and grduated from high school in 2020 even though the year was made difficult due the covid-19 outbreak. 
+    Sameer then went into the next phase of his life as he entered University and chose to go to The University of Pretoria where he is studying Bcom Informatics.<br />
+    Sameer is currently in his second year of university and still enjoys his degree and cant wait to see what lies ahead for him.</p>
+</div>
+<div class="col-lg-7">
+<h2> Sameer</h2>
+@{ 
+    var sam = "~/bio/Sameer.jpg";
+    <div class="col-lg-6">
+        <img src="@Url.Content(sam)"
+             class="img-responsive" height="300" width="300" />
+    </div>
+    
+}
+</div>
+</div>
